@@ -1,0 +1,13 @@
+[package]
+name = "dsp-sms"
+version = "0.15.0"
+edition = "2024"
+
+[dependencies]
+bincode = { version = "2", features = ["derive"] }
+log = "0.4"
+num = "0.4"
+
+[dev-dependencies]
+rand = "0.10"
+

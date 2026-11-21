@@ -1,0 +1,32 @@
+Core de emulação vendorizado em `vendor/jgenesis`
+=================================================
+
+Upstream: https://github.com/jsgroth/jgenesis
+Commit: 8d1bdfba460b3a49b493aa00368926ea375d6074
+Licença: GPL-3.0-only (ver LICENSE)
+
+Arquivos mantidos (subset necessário ao `smsgg-core`):
+- backend/smsgg-core/
+- backend/ti-sn76489/
+- backend/ym-opll/
+- cpu/z80-emu/
+- common/jgenesis-common/
+- common/jgenesis-proc-macros/
+- common/dsp/
+- config/smsgg-config/
+
+Modificações locais:
+- Manifestos Cargo: `version = { workspace = true }` e dependências de workspace
+  foram expandidas para valores literais e caminhos relativos, para que os crates
+  compitem como dependências de caminho dentro do workspace do Emmu.
+- `[lints] workspace = true` foi removido dos manifestos vendorizados.
+- Nenhuma lógica de emulação de CPU, VDP, PSG ou mapeador foi alterada.
+
+O crate `emmu-sms` usa o modo `SmsGgHardware::MasterSystem`, resolução nativa
+256x224 (NTSC) ou 256x240 (PAL), sem BIOS, com o PSG SN76489 versão
+MasterSystem2 e o mapeador detectado automaticamente pelo cabeçalho do
+cartucho. O YM2413 (FM) é habilitado para cartuchos que o sinalizam.
+
+Os nomes dos pacotes vendorizados foram sufixados com `-gg` (`dsp-gg`,
+`jgenesis-common-gg`, `jgenesis-proc-macros-gg`) para não colidirem com o subset
+JGenesis usado pelo `emmu-pce` e pelo `emmu-gg`.

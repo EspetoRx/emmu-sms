@@ -1,0 +1,11 @@
+[package]
+name = "ym-opll-sms"
+version = "0.15.0"
+edition = "2024"
+
+[dependencies]
+jgenesis-common = { package = "jgenesis-common-sms" , path = "../../common/jgenesis-common" }
+
+bincode = { version = "2", features = ["derive"] }
+log = "0.4"
+

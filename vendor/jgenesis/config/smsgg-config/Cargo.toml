@@ -1,0 +1,19 @@
+[package]
+name = "smsgg-config-sms"
+version = "0.15.0"
+edition = "2024"
+
+[features]
+default = []
+clap = ["dep:clap"]
+serde = ["dep:serde"]
+
+[dependencies]
+jgenesis-common = { package = "jgenesis-common-sms" , path = "../../common/jgenesis-common" }
+jgenesis-proc-macros = { package = "jgenesis-proc-macros-sms" , path = "../../common/jgenesis-proc-macros" }
+
+bincode = { version = "2", features = ["derive"] }
+clap = { version = "4", features = ["derive"], optional = true }
+regex = "1"
+serde = { version = "1", features = ["derive"], optional = true }
+

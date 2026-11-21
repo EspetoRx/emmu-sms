@@ -1,0 +1,18 @@
+# Workspace reduzido do JGenesis, vendorizado para o core Game Gear do Emmu.
+# Apenas os crates necessários ao `smsgg-core` foram mantidos.
+[workspace]
+members = [
+    "backend/smsgg-core",
+    "backend/ti-sn76489",
+    "backend/ym-opll",
+    "common/dsp",
+    "common/jgenesis-common",
+    "common/jgenesis-proc-macros",
+    "config/smsgg-config",
+    "cpu/z80-emu",
+]
+resolver = "2"
+
+[workspace.package]
+version = "0.15.0"
+edition = "2024"

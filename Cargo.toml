@@ -1,0 +1,24 @@
+[package]
+name = "emmu-sms"
+version = "0.1.0"
+edition = "2024"
+description = "Emmu Sega Master System core (WASM + native)"
+repository = "https://github.com/EspetoRx/emmu-sms"
+license = "GPL-3.0-only"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+# O núcleo de emulação (JGenesis smsgg-core + Z80 + PSG + YM2413) é
+# vendorizado dentro desta pasta, em `vendor/jgenesis`. Nenhum pacote de
+# emulação fica fora do diretório do módulo.
+[dependencies]
+smsgg-core = { package = "smsgg-core-sms", path = "vendor/jgenesis/backend/smsgg-core" }
+jgenesis-common = { package = "jgenesis-common-sms", path = "vendor/jgenesis/common/jgenesis-common" }
+smsgg-config = { package = "smsgg-config-sms", path = "vendor/jgenesis/config/smsgg-config" }
+bincode = { version = "2", features = ["derive"] }
+wasm-bindgen = "0.2"
+
+# O JGenesis usa `rand` para inicializar a RAM; no navegador o RNG precisa da
+# API JS do getrandom.
+getrandom = { version = "0.4", features = ["wasm_js"] }

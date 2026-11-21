@@ -1,0 +1,18 @@
+[package]
+name = "ti-sn76489"
+edition = "2024"
+version = "0.15.0"
+
+[features]
+default = []
+serde = ["dep:serde"]
+clap = ["dep:clap"]
+
+[dependencies]
+jgenesis-common = { package = "jgenesis-common-gg" , path = "../../common/jgenesis-common" }
+jgenesis-proc-macros = { package = "jgenesis-proc-macros-gg" , path = "../../common/jgenesis-proc-macros" }
+
+bincode = { version = "2", features = ["derive"] }
+clap = { version = "4", features = ["derive"], optional = true }
+serde = { version = "1", features = ["derive"], optional = true }
+

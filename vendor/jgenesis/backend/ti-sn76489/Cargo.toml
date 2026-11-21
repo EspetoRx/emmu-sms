@@ -1,0 +1,18 @@
+[package]
+name = "ti-sn76489-sms"
+edition = "2024"
+version = "0.15.0"
+
+[features]
+default = []
+serde = ["dep:serde"]
+clap = ["dep:clap"]
+
+[dependencies]
+jgenesis-common = { package = "jgenesis-common-sms" , path = "../../common/jgenesis-common" }
+jgenesis-proc-macros = { package = "jgenesis-proc-macros-sms" , path = "../../common/jgenesis-proc-macros" }
+
+bincode = { version = "2", features = ["derive"] }
+clap = { version = "4", features = ["derive"], optional = true }
+serde = { version = "1", features = ["derive"], optional = true }
+

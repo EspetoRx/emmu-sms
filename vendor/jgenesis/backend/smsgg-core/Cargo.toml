@@ -1,0 +1,25 @@
+[package]
+name = "smsgg-core-sms"
+version = "0.15.0"
+edition = "2024"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+dsp = { package = "dsp-sms" , path = "../../common/dsp" }
+jgenesis-proc-macros = { package = "jgenesis-proc-macros-sms" , path = "../../common/jgenesis-proc-macros" }
+jgenesis-common = { package = "jgenesis-common-sms" , path = "../../common/jgenesis-common" }
+
+smsgg-config = { package = "smsgg-config-sms", path = "../../config/smsgg-config" }
+
+z80-emu = { package = "z80-emu-sms", path = "../../cpu/z80-emu", features = ["bincode"] }
+
+ti-sn76489 = { package = "ti-sn76489-sms", path = "../../backend/ti-sn76489" }
+ym-opll = { package = "ym-opll-sms", path = "../../backend/ym-opll" }
+
+bincode = { version = "2", features = ["derive"] }
+crc = "3"
+log = "0.4"
+thiserror = "2"
+tinyvec = "1"
+
